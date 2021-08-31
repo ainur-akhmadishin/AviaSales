@@ -1,12 +1,12 @@
 import { combineReducers } from 'redux';
-import ticketsReduser from './ticketsReduser';
-import checkboxReduser from './checkboxReduser';
-import sortReduser from './sortReduser';
+import ticketsReducer from './ticketsReducer';
+import checkboxReducer from './checkboxReducer';
+import sortReducer from './sortReducer';
 
 const reducer = combineReducers({
-  tickets: ticketsReduser,
-  filters: checkboxReduser,
-  sort: sortReduser,
+  tickets: ticketsReducer,
+  filters: checkboxReducer,
+  sort: sortReducer,
 });
 
 export default reducer;

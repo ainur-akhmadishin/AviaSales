@@ -4,6 +4,7 @@ import { GET_TICKETS, BUFFER, BTN_SHOW_MORE, SPINNER, ERROR } from './types';
 const initState = {
   tickets: [],
   buffer:false,
+  flag: false,
   ticketCount:5,
   loading:false,
   error:false,
@@ -20,7 +21,8 @@ const ticketsReduser = (state = initState, action) => {
       return {
         ...state,
         tickets: newState,
-         };
+        bufferFlag: true,
+      };
     }
     case BUFFER:
       return {

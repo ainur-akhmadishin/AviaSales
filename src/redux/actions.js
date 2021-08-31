@@ -1,10 +1,12 @@
 import { GET_TICKETS, SORT, FILTER, BUFFER, BTN_SHOW_MORE, SPINNER, ERROR } from './types';
 import Api from '../servise/Api';
 
-const api = new Api();
 
-
-async function asyncGetTicket(dispatch, key){
+export function getTickets() {
+	
+  return  (dispatch) => {
+	  const api = new Api();
+	  				async function asyncGetTicket(key){
 		let searchID = key;
 try{
 		  if (!searchID){
@@ -17,7 +19,7 @@ try{
     dispatch({ type: GET_TICKETS, payload: tickets });
 	dispatch({ type: BUFFER, payload:true});
 		  		  if (!tickets.stop){
-			    return  asyncGetTicket(dispatch, searchID);
+			    return  asyncGetTicket(searchID);
 			 
 		  }
 	  
@@ -31,12 +33,8 @@ try{
 	}
 	   return 0;
   };
-
-
-export function getTickets() {
-	
-  return  (dispatch) => {
-	  				asyncGetTicket(dispatch)
+	  
+	asyncGetTicket()  
 }
 }
 
